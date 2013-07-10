@@ -47,11 +47,11 @@ public final class ESIKAnalyzer  extends Analyzer{
 		return new TokenStreamComponents(_IKTokenizer);
 	}
 	
-    public ESIKAnalyzer(Settings indexSetting,Settings settings1) {
+    public ESIKAnalyzer(Settings indexSetting,Settings settings) {
         super();
         Dictionary.initial().Init(indexSetting);
         //settings1.get("use_smart", "false" 含义为取use_smart,若为null,则默认值为fasle
-        if(settings1.get("use_smart", "false").equals("true")){
+        if(settings.get("use_smart", "false").equals("true")){
             useSmart = true;
         }else{
         	useSmart = false;
