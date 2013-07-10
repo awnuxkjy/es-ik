@@ -43,19 +43,20 @@ public final class ESIKAnalyzer  extends Analyzer{
 	@Override
 	protected TokenStreamComponents createComponents(String fieldName, final Reader in) {
 		Tokenizer _IKTokenizer = new ESIKTokenizer(in , this.useSmart());
+		
 		return new TokenStreamComponents(_IKTokenizer);
 	}
 	
     public ESIKAnalyzer(Settings indexSetting,Settings settings1) {
         super();
         Dictionary.initial().Init(indexSetting);
-
-        if(settings1.get("use_smart", "true").equals("true")){
+        //settings1.get("use_smart", "false" 含义为取use_smart,若为null,则默认值为fasle
+        if(settings1.get("use_smart", "false").equals("true")){
             useSmart = true;
+        }else{
+        	useSmart = false;
         }
-        if(settings1.get("use_smart", "false").equals("false")){
-            useSmart = false;
-        }
+        
     }
 
 }

@@ -7,6 +7,7 @@ import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.wltea.analyzer.cfg.Configuration;
 import org.wltea.analyzer.cfg.ESConfig;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
@@ -34,7 +35,9 @@ public class ESIKTokenizer extends Tokenizer  {
 	    offsetAtt = addAttribute(OffsetAttribute.class);
 	    termAtt = addAttribute(CharTermAttribute.class);
 	    typeAtt = addAttribute(TypeAttribute.class);
-		_IKImplement = new IKSegmenter(input , ESConfig.getInstance());
+	    Configuration cfg=ESConfig.getInstance();
+	    cfg.setUseSmart(useSmart);
+	    _IKImplement = new IKSegmenter(input , cfg);
 	}
 
 	/* (non-Javadoc)
