@@ -462,7 +462,7 @@ public class Dictionary {
 			InputStream is = null;
 			for(String extDictName : extDictFiles){
 				//读取扩展词典文件
-				System.out.println("加载扩展词典：" + extDictName);
+				//System.out.println("加载扩展词典：" + extDictName);
 				//is = this.getClass().getClassLoader().getResourceAsStream(extDictName);
 				File file= new File(environment.configFile()+File.separator+"ik"+File.separator, extDictName);
 		        try {
@@ -515,12 +515,12 @@ public class Dictionary {
 		if(extStopWordDictFiles != null){
 			InputStream is = null;
 			for(String extStopWordDictName : extStopWordDictFiles){
-				System.out.println("加载扩展停止词典目录：" + environment.configFile());
-				System.out.println("加载扩展停止词典：" + extStopWordDictName);
+				//System.out.println("加载扩展停止词典目录：" + environment.configFile());
+				//System.out.println("加载扩展停止词典：" + extStopWordDictName);
 				//读取扩展词典文件
 				//is = this.getClass().getClassLoader().getResourceAsStream(extStopWordDictName);
 				File file= new File(environment.configFile()+File.separator+"ik"+File.separator, extStopWordDictName);
-				System.out.println("加载扩展停止词典文件：" + file);
+				//System.out.println("加载扩展停止词典文件：" + file);
 		        try {
 		            is = new FileInputStream(file);
 		        } catch (FileNotFoundException e) {

@@ -8,7 +8,7 @@ import org.elasticsearch.common.settings.Settings;
 import org.wltea.analyzer.dic.Dictionary;
 
 public final class ESIKAnalyzer  extends Analyzer{
-	private boolean useSmart=true;
+	private boolean useSmart;
 	
 	public boolean useSmart() {
 		return useSmart;
@@ -24,7 +24,7 @@ public final class ESIKAnalyzer  extends Analyzer{
 	 * 默认细粒度切分算法
 	 */
 	public ESIKAnalyzer(){
-		this(true);
+		this(false);
 	}
 	
 	/**
@@ -50,11 +50,9 @@ public final class ESIKAnalyzer  extends Analyzer{
     public ESIKAnalyzer(Settings indexSetting,Settings settings) {
         super();
         Dictionary.initial().Init(indexSetting);
-        //settings1.get("use_smart", "false" 含义为取use_smart,若为null,则默认值为fasle
-        if(settings.get("use_smart", "false").equals("true")){
+        //settings1.get("use_smart", "true")含义为取use_smart,若为null,则默认值为true
+        if(settings.get("use_smart", "true").equals("true")){
             useSmart = true;
-        }else{
-        	useSmart = false;
         }
         
     }

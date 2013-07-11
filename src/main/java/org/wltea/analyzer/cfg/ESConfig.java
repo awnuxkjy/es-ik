@@ -33,7 +33,7 @@ public class ESConfig implements Configuration{
 	/*
 	 * 是否使用smart方式分词
 	 */
-	private boolean useSmart=true;
+	private boolean useSmart;
 	
 	private static ESConfig singleton;
 	
