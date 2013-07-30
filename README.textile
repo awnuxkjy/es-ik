@@ -1,3 +1,5 @@
+more info:www.chepoo.com
+
 IK Analysis for ElasticSearch
 ==================================
 
